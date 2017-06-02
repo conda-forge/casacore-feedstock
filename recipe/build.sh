@@ -1,7 +1,6 @@
 #! /bin/bash
 
 cmake_args=(
-    -DBUILD_PYTHON=OFF
     -DBUILD_TESTING=OFF
     -DCMAKE_BUILD_TYPE=Release
     -DCMAKE_COLOR_MAKEFILE=OFF
@@ -13,6 +12,20 @@ cmake_args=(
     -DCXX11=ON
     -DCONDA_CASA_ROOT=$PREFIX/lib/casa
 )
+
+if [ $PY3K -ne 0 ] ; then
+    cmake_args+=(
+        -DBUILD_PYTHON3=ON
+        -DBUILD_PYTHON=OFF
+        -DPYTHON3_EXECUTABLE=$PYTHON
+    )
+else
+    cmake_args+=(
+        -DBUILD_PYTHON=ON
+        -DBUILD_PYTHON3=OFF
+        -DPYTHON2_EXECUTABLE=$PYTHON
+    )
+fi
 
 if [ $(uname) = Darwin ] ; then
     cmake_args+=(
