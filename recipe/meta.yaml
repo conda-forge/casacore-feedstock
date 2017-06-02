@@ -16,7 +16,7 @@ source:
     - so-versioning.patch
 
 build:
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: true
   skip: true  # [win]
 
@@ -29,7 +29,7 @@ requirements:
     - cfitsio 3.410
     - cmake
     - fftw 3.3.*
-    - hdf5 1.8.17|1.8.17.*
+    - hdf5 1.8.18|1.8.18.*
     - ncurses 5.9*
     - openblas 0.2.19|0.2.19.*
     - readline 6.2*
@@ -37,7 +37,7 @@ requirements:
   run:
     - cfitsio 3.410
     - fftw 3.3.*
-    - hdf5 1.8.17|1.8.17.*
+    - hdf5 1.8.18|1.8.18.*
     - libgfortran  # [unix]
     - ncurses 5.9*
     - openblas 0.2.19|0.2.19.*
