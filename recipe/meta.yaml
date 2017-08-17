@@ -17,7 +17,7 @@ source:
     - boost-python.patch
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: true
   skip: true  # [win]
 
@@ -27,7 +27,7 @@ requirements:
     - gcc  # [osx]
     - flex
     - bison
-    - boost 1.63.*  # note this is intentionally NOT the latest version; a bug in 1.64 breaks casa-tools
+    - boost 1.64.*
     - cfitsio 3.410
     - cmake
     - fftw 3.3.*
@@ -39,7 +39,7 @@ requirements:
     - readline 6.2*
     - wcslib 5.16
   run:
-    - boost 1.63.*  # note this is intentionally NOT the latest version; a bug in 1.64 breaks casa-tools
+    - boost 1.64.*
     - cfitsio 3.410
     - fftw 3.3.*
     - hdf5 1.8.18|1.8.18.*
