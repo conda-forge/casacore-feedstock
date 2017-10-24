@@ -1,5 +1,5 @@
---- casacore/cmake/FindReadline.cmake.orig	2016-06-27 00:25:35.953287749 +0000
-+++ casacore/cmake/FindReadline.cmake	2016-06-27 00:25:44.792279239 +0000
+--- a/casacore/cmake/FindReadline.cmake
++++ b/casacore/cmake/FindReadline.cmake
 @@ -36,7 +36,7 @@
      HINTS ${READLINE_ROOT_DIR} PATH_SUFFIXES include)
    find_library(READLINE_LIBRARY readline
