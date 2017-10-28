@@ -20,8 +20,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 0
-  string: "0h05be37c0" # keep synced with git_rev if we make more of these
+  number: 1
   detect_binary_files_with_prefix: true
   skip: true  # [win]
 
