@@ -1,17 +1,15 @@
 {% set name = "casacore" %}
-{% set version = "2.3.1a1" %}
-#{% set sha256 = "d8ed5373f5447885be6d3aac72f26cee24a662df5caf4a6cd23e846b79181700" %}
+{% set version = "2.4.0" %}
+{% set sha256 = "9ae749d604d037a5a7b13b9eb759dfb8e22a405dcdb61f67c0916d3fe78db39c" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  #fn: {{ name }}-{{ version }}.tar.gz
-  #url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
-  #sha256: {{ sha256 }}
-  git_url: https://github.com/casacore/casacore.git
-  git_rev: 05be37c02bc3a18aaef0477c7bb35dbc528edaca # last commit that master and casa-5.1.0 have in common
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
   patches:
     - ncursesw.patch
     - default-root.patch
@@ -20,7 +18,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: true
   skip: true  # [win]
 
