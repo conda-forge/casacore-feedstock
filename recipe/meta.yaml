@@ -18,7 +18,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: true
   skip: true  # [win]
 
@@ -32,7 +32,7 @@ requirements:
     - cfitsio 3.410
     - cmake
     - fftw 3.3.*
-    - hdf5 1.8.18|1.8.18.*
+    - hdf5 1.10.1
     - ncurses 5.9
     - numpy
     - openblas 0.2.19|0.2.19.*
@@ -43,7 +43,7 @@ requirements:
     - boost 1.65.1
     - cfitsio 3.410
     - fftw 3.3.*
-    - hdf5 1.8.18|1.8.18.*
+    - hdf5 1.10.1
     - libgfortran  # [unix]
     - ncurses 5.9
     - numpy
