@@ -18,8 +18,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 2
-  detect_binary_files_with_prefix: true
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -37,8 +36,8 @@ requirements:
     - numpy
     - openblas 0.2.20|0.2.20.*
     - python
-    - readline 6.2*
-    - wcslib 5.16
+    - readline 7.0
+    - wcslib 5.17
   run:
     - boost 1.65.1
     - cfitsio 3.410
@@ -49,8 +48,8 @@ requirements:
     - numpy
     - openblas 0.2.20|0.2.20.*
     - python
-    - readline 6.2*
-    - wcslib 5.16
+    - readline 7.0
+    - wcslib 5.17
 
 test:
   commands:
