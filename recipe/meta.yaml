@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
-{% set version = "2.4.0" %}
-{% set sha256 = "9ae749d604d037a5a7b13b9eb759dfb8e22a405dcdb61f67c0916d3fe78db39c" %}
+{% set version = "2.4.1" %}
+{% set sha256 = "58eccc875053b2c6fe44fe53b6463030ef169597ec29926936f18d27b5087d63" %}
 
 package:
   name: {{ name|lower }}
@@ -18,7 +18,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
 
 requirements:
