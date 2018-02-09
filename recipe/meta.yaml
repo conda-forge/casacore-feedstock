@@ -18,7 +18,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -27,29 +27,33 @@ requirements:
     - gcc  # [osx]
     - flex
     - bison
-    - boost 1.65.1
+    - boost 1.66.0
     - cfitsio 3.410
     - cmake
     - fftw 3.3.*
     - hdf5 1.10.1
     - ncurses 5.9
-    - numpy
+    - numpy 1.7.*  # [py27]
+    - numpy 1.9.*  # [py35]
+    - numpy 1.11.*  # [py36]
     - openblas 0.2.20|0.2.20.*
     - python
     - readline 7.0
-    - wcslib 5.17
+    - wcslib 5.18
   run:
-    - boost 1.65.1
+    - boost 1.66.0
     - cfitsio 3.410
     - fftw 3.3.*
     - hdf5 1.10.1
     - libgfortran  # [unix]
     - ncurses 5.9
-    - numpy
+    - numpy >=1.7  # [py27]
+    - numpy >=1.9  # [py35]
+    - numpy >=1.11  # [py36]
     - openblas 0.2.20|0.2.20.*
     - python
     - readline 7.0
-    - wcslib 5.17
+    - wcslib 5.18
 
 test:
   commands:
