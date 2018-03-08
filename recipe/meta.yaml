@@ -18,7 +18,7 @@ source:
     - boost-python3.patch  # [py3k]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -28,7 +28,7 @@ requirements:
     - flex
     - bison
     - boost 1.66.0
-    - cfitsio 3.410
+    - cfitsio 3.430
     - cmake
     - fftw 3.3.*
     - hdf5 1.10.1
@@ -42,7 +42,7 @@ requirements:
     - wcslib 5.18
   run:
     - boost 1.66.0
-    - cfitsio 3.410
+    - cfitsio 3.430
     - fftw 3.3.*
     - hdf5 1.10.1
     - libgfortran  # [unix]
