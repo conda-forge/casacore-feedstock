@@ -23,36 +23,33 @@ build:
 
 requirements:
   build:
-    - toolchain
-    - gcc  # [osx]
+    - cmake
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - flex
     - bison
-    - boost 1.66.0
+    - boost
     - cfitsio 3.430
-    - cmake
     - fftw 3.3.*
-    - hdf5 1.10.1
-    - ncurses 5.9
-    - numpy 1.8.*  # [py27]
-    - numpy 1.9.*  # [py35]
-    - numpy 1.11.*  # [py36]
-    - openblas 0.2.20|0.2.20.*
+    - hdf5
+    - ncurses
+    - numpy
+    - openblas
     - python
-    - readline 7.0
+    - readline
     - wcslib 5.18
   run:
-    - boost 1.66.0
+    - boost
     - cfitsio 3.430
     - fftw 3.3.*
-    - hdf5 1.10.1
-    - libgfortran  # [unix]
-    - ncurses 5.9
-    - numpy >=1.8  # [py27]
-    - numpy >=1.9  # [py35]
-    - numpy >=1.11  # [py36]
-    - openblas 0.2.20|0.2.20.*
+    - hdf5
+    - ncurses
+    - {{ pin_compatible('numpy') }}
+    - openblas
     - python
-    - readline 7.0
+    - readline
     - wcslib 5.18
 
 test:
