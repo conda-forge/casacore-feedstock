@@ -35,9 +35,7 @@ requirements:
     - fftw 3.3.*
     - hdf5
     - ncurses
-    - numpy        # [py27]
-    - numpy        # [py35]
-    - numpy         # [py36]
+    - numpy
     - openblas
     - python
     - readline
@@ -48,9 +46,7 @@ requirements:
     - fftw 3.3.*
     - hdf5
     - ncurses
-    - {{ pin_compatible('numpy') }}   # [py27]
-    - {{ pin_compatible('numpy') }}   # [py35]
-    - {{ pin_compatible('numpy') }}   # [py36]
+    - {{ pin_compatible('numpy') }}
     - openblas
     - python
     - readline
