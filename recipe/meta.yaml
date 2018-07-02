@@ -14,8 +14,7 @@ source:
     - ncursesw.patch
     - default-root.patch
     - so-versioning.patch
-    - boost-python.patch  # [not py3k]
-    - boost-python3.patch  # [py3k]
+    - boost-python.patch
 
 build:
   number: 3
