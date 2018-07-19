@@ -15,9 +15,10 @@ source:
     - default-root.patch
     - so-versioning.patch
     - boost-python.patch
+    - ignore-build-env-prefix.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:

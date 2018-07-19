@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6bf9f4f..2eb980a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,6 +8,8 @@ include(CheckCXXCompilerFlag)
+ include(CheckCCompilerFlag)
+ include(CheckFunctionExists)
+ 
++list(FILTER CMAKE_SYSTEM_PREFIX_PATH EXCLUDE REGEX build_env)
++
+ # fixes warnings on cmake 3.x+ For now we want the old behavior to be backwards compatible
+ if (POLICY CMP0048)
+     cmake_policy (SET CMP0048 OLD)
