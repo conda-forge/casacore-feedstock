@@ -23,13 +23,14 @@ build:
 
 requirements:
   build:
+    - bison
     - cmake
+    - flex
+    - m4
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - flex
-    - bison
     - boost
     - cfitsio 3.430
     - fftw 3.3.*

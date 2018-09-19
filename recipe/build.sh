@@ -41,6 +41,9 @@ else
     )
 fi
 
+# Work around bug in conda-forge package of bison (3.0.5 hfc679d8_1)
+export M4=$BUILD_PREFIX/bin/m4
+
 mkdir build
 cd build
 cmake "${cmake_args[@]}" ..
