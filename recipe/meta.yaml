@@ -9,7 +9,7 @@ source:
   #url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
   #sha256: "58eccc875053b2c6fe44fe53b6463030ef169597ec29926936f18d27b5087d63"
   git_url: https://github.com/casacore/casacore.git
-  git_rev: casa-5.4.0
+  git_rev: 1c22f8e4c
   patches:
     - ncursesw.patch
     - default-root.patch
@@ -18,8 +18,10 @@ source:
     - ignore-build-env-prefix.patch
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
+  run_exports:
+    - {{ pin_subpackage('casacore', max_pin='x.x') }}
 
 requirements:
   build:
@@ -55,8 +57,12 @@ requirements:
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
+    - casahdf5support
+    - findmeastable --help
+    - lsmf
+    - measuresdata
+    - taql --help
+    - tomf --help
 
 about:
   home: http://casa.nrao.edu/
