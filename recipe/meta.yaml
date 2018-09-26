@@ -1,5 +1,5 @@
 {% set name = "casacore" %}
-{% set version = "2.4.1" %}
+{% set version = "2.4.2a0" %}
 
 package:
   name: {{ name|lower }}
@@ -18,7 +18,7 @@ source:
     - ignore-build-env-prefix.patch
 
 build:
-  number: 6
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
