@@ -1,17 +1,19 @@
 boost:
 - 1.68.0
+build_number_decrement:
+- '0'
 c_compiler:
-- toolchain_c
+- gcc
 channel_sources:
-- conda-forge,defaults
+- conda-forge/label/gcc7,defaults
 channel_targets:
-- conda-forge main
+- conda-forge gcc7
 cxx_compiler:
-- toolchain_cxx
+- gxx
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-comp7
 fortran_compiler:
-- toolchain_fort
+- gfortran
 hdf5:
 - 1.10.3
 ncurses:
@@ -38,3 +40,11 @@ python:
 - '2.7'
 readline:
 - '7.0'
+zip_keys:
+- - c_compiler
+  - cxx_compiler
+  - fortran_compiler
+  - channel_sources
+  - channel_targets
+  - docker_image
+  - build_number_decrement
