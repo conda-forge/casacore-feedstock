@@ -18,7 +18,7 @@ source:
     - ignore-build-env-prefix.patch
 
 build:
-  number: 1
+  number: 1001
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
@@ -34,7 +34,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - boost
-    - cfitsio 3.430
+    - cfitsio 3.430.*
     - fftw 3.3.*
     - hdf5
     - ncurses
@@ -42,10 +42,10 @@ requirements:
     - openblas
     - python
     - readline
-    - wcslib 5.18
+    - wcslib 5.20.*
   run:
     - boost
-    - cfitsio 3.430
+    - cfitsio 3.430.*
     - fftw 3.3.*
     - hdf5
     - ncurses
@@ -53,7 +53,7 @@ requirements:
     - openblas
     - python
     - readline
-    - wcslib 5.18
+    - wcslib 5.20.*
 
 test:
   commands:
