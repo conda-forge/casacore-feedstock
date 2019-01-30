@@ -1,0 +1,63 @@
+diff --git a/casa/Arrays/Array.h b/casa/Arrays/Array.h
+index 1cb9c550b..42039781d 100644
+--- a/casa/Arrays/Array.h
++++ b/casa/Arrays/Array.h
+@@ -945,6 +945,7 @@ protected:
+   extern template class Array<Complex>;
+   extern template class Array<DComplex>;
+   extern template class Array<String>;
++  extern template class Array<Slice>;
+ #endif
+ 
+ }//#End casa namespace
+diff --git a/casa/Arrays/Array_tmpl.cc b/casa/Arrays/Array_tmpl.cc
+index 8e39bc402..4a215a849 100644
+--- a/casa/Arrays/Array_tmpl.cc
++++ b/casa/Arrays/Array_tmpl.cc
+@@ -46,5 +46,6 @@ namespace casacore {
+   template class Array<Complex>;
+   template class Array<DComplex>;
+   template class Array<String>;
++  template class Array<Slice>;
+ }
+ #endif
+diff --git a/casa/Quanta/Quantum.h b/casa/Quanta/Quantum.h
+index ead429925..eec52b3b2 100644
+--- a/casa/Quanta/Quantum.h
++++ b/casa/Quanta/Quantum.h
+@@ -32,6 +32,8 @@
+ #include <casacore/casa/Quanta/QBase.h>
+ #include <casacore/casa/iosstrfwd.h>
+ 
++#include <casacore/casa/Arrays/Array.h>
++
+ namespace casacore { //# NAMESPACE CASACORE - BEGIN
+ 
+ //# Forward Declarations
+@@ -444,6 +446,7 @@ Bool readQuantity(Quantity &res, const String &in);
+ //# Declare extern templates for often used types.
+ #ifdef AIPS_CXX11
+   extern template class Quantum<Double>;
++  extern template class Array<Quantum<Double> >;
+ #endif
+ 
+ 
+diff --git a/casa/Quanta/Quantum2.cc b/casa/Quanta/Quantum2.cc
+index cb70e1023..0e4fe7d3f 100644
+--- a/casa/Quanta/Quantum2.cc
++++ b/casa/Quanta/Quantum2.cc
+@@ -31,12 +31,14 @@
+ #include <casacore/casa/Utilities/MUString.h>
+ #include <casacore/casa/Utilities/Regex.h>
+ #include <casacore/casa/iostream.h>
++#include <casacore/casa/Arrays/Array.h>
+ 
+ namespace casacore { //# NAMESPACE CASACORE - BEGIN
+ 
+ //# Define extern templates for often used types.
+ #ifdef AIPS_CXX11
+   template class Quantum<Double>;
++  template class Array<Quantum<Double> >;
+ #endif
+ 
+ istream &operator>> (istream &is, Quantity &ku)
