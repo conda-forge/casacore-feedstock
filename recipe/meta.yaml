@@ -20,7 +20,7 @@ source:
     - clang-link.patch  # [osx]
 
 build:
-  number: 1004
+  number: 1005
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
@@ -35,13 +35,14 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
+    - libblas
+    - libcblas
     - boost
     - cfitsio 3.430.*
     - fftw 3.3.*
     - hdf5
     - ncurses
     - numpy
-    - openblas
     - python
     - readline
     - wcslib 5.20.*
@@ -52,7 +53,6 @@ requirements:
     - hdf5
     - ncurses
     - {{ pin_compatible('numpy') }}
-    - openblas
     - python
     - readline
     - wcslib 5.20.*
