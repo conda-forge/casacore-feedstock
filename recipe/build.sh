@@ -38,11 +38,7 @@ if [ $(uname) = Darwin ] ; then
 	-DREADLINE_LIBRARY=$PREFIX/lib/libreadline.dylib
     )
 else
-    cmake_args+=(
-	-DBLAS_LIBRARIES="$PREFIX/lib/libopenblas.so"
-	-DCMAKE_CXX_FLAGS="$CXXFLAGS -Wl,-rpath-link,$PREFIX/lib"
-    )
-
+    export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
     # Ermahgerd, CMake and the new C++ compilers do *not* play well together.
     # Although that may be mostly due to funky rules in this particular
     # package. Anyway, commence hacks to get this compiling. The basic problem
@@ -64,6 +60,11 @@ else
         popd
     fi
 fi
+
+cmake_args+=(
+  -DBLAS_LIBRARIES="$PREFIX/lib/libblas${SHLIB_EXT}"
+  -DLAPACK_LIBRARIES="$PREFIX/lib/liblapack${SHLIB_EXT}"
+)
 
 ### cmake_args+=(--debug-trycompile --debug-output --trace-expand)
 
