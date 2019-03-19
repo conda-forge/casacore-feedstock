@@ -37,6 +37,7 @@ requirements:
   host:
     - libblas
     - libcblas
+    - liblapack
     - boost
     - cfitsio 3.430.*
     - fftw 3.3.*
