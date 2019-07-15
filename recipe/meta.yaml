@@ -20,7 +20,7 @@ source:
     - clang-link.patch  # [osx]
 
 build:
-  number: 1008
+  number: 1009
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
@@ -39,7 +39,7 @@ requirements:
     - libcblas
     - liblapack
     - boost
-    - cfitsio 3.430.*
+    - cfitsio
     - fftw 3.3.*
     - hdf5
     - ncurses
@@ -49,7 +49,6 @@ requirements:
     - wcslib 5.20.*
   run:
     - boost
-    - cfitsio 3.430.*
     - fftw 3.3.*
     - hdf5
     - ncurses
