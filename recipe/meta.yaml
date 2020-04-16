@@ -67,8 +67,8 @@ test:
     - tomf --help
 
 about:
-  home: http://casa.nrao.edu/
-  license: GPLv2
+  home: https://casacore.github.io/casacore/
+  license: GPL-2.0-or-later
   license_file: COPYING
   summary: 'Core libraries for the Common Astronomical Software Applications (CASA)'
 
