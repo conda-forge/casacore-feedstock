@@ -1,26 +1,25 @@
 {% set name = "casacore" %}
-{% set version = "2.4.2a0" %}
+{% set version = "3.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  #url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
-  #sha256: "58eccc875053b2c6fe44fe53b6463030ef169597ec29926936f18d27b5087d63"
-  git_url: https://github.com/casacore/casacore.git
-  git_rev: 1c22f8e4c
+  url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 3a714644b908ef6e81489b792cc9b80f6d8267a275e15d38a42a6a5137d39d3d
   patches:
     - ncursesw.patch
     - default-root.patch
-    - so-versioning.patch
     - boost-python.patch
     - ignore-build-env-prefix.patch
-    - array-templates.patch
     - clang-link.patch  # [osx]
 
+    # - so-versioning.patch
+    # - array-templates.patch
+
 build:
-  number: 1012
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
