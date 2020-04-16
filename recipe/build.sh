@@ -31,9 +31,6 @@ fi
 
 if [ $(uname) = Darwin ] ; then
     cmake_args+=(
-	-DCMAKE_CXX_FLAGS="$CXXFLAGS -stdlib=libc++"
-	-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET
-	-DCMAKE_OSX_SYSROOT=/
 	-DREADLINE_INCLUDE_DIR=$PREFIX/include
 	-DREADLINE_LIBRARY=$PREFIX/lib/libreadline.dylib
     )
