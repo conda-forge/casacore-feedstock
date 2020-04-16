@@ -11,9 +11,10 @@ source:
   patches:
     - ncursesw.patch
     - default-root.patch
-    - boost-python.patch
     - ignore-build-env-prefix.patch
-    - clang-link.patch  # [osx]
+
+    # Probably still need this
+    # - clang-link.patch  # [osx]
 
     # - so-versioning.patch
     # - array-templates.patch

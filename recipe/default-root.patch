@@ -1,8 +1,10 @@
+diff --git a/casacore/CMakeLists.txt b/casacore/CMakeLists.txt
+index 7d54f8c..823675c 100644
 --- a/casacore/CMakeLists.txt
 +++ b/casacore/CMakeLists.txt
-@@ -314,6 +314,10 @@
-     add_definitions(-DUSE_STACKTRACE)
- endif(USE_STACKTRACE)
+@@ -521,6 +521,10 @@ else( )
+     set (LIB_SOVERSION "${PROJECT_SOVERSION}")
+ endif( )
  
 +# conda-build hack
 +add_definitions(-DCONDA_CASA_ROOT="${CONDA_CASA_ROOT}")
@@ -11,44 +13,41 @@
  # Add the modules to be built.
  add_subdirectory (build-tools)
  foreach (module ${_modules})
+diff --git a/casacore/casa/System/Aipsrc.cc b/casacore/casa/System/Aipsrc.cc
+index c1a995d..62efa82 100644
 --- a/casacore/casa/System/Aipsrc.cc
 +++ b/casacore/casa/System/Aipsrc.cc
-@@ -215,9 +215,9 @@
-     } else { 
-       aipsPath = extAipsPath;
-     }
--    // Set the path to home if not defined in any way.
-+    // conda-build hack: default is known; hack to fix zero-pad issues on OSX
-     if (aipsPath.empty()) {
--      setAipsPath(uhome);
-+      setAipsPath(String(String(CONDA_CASA_ROOT).chars()));
-       aipsPath = extAipsPath;
-     }
-     Int n = aipsPath.freq(' ') + aipsPath.freq('	') + 4;
-@@ -422,7 +422,7 @@
-     if (find(x, String("user.aipsdir"), String("/aips++"))) {
-       home = x;
-     } else {
--      home = uhome + x;
-+      home = String(String(CONDA_CASA_ROOT).chars());
-     }
+@@ -220,9 +220,9 @@ void Aipsrc::fillAips() {
+   } else {
+     aipsPath = extAipsPath;
    }
- }
+-  // Set the path to home if not defined in any way.
++  // conda-build hack: default is known; hack to fix zero-pad issues on OSX
+   if (aipsPath.empty()) {
+-    setAipsPath(uhome);
++    setAipsPath(String(String(CONDA_CASA_ROOT).chars()));
+     aipsPath = extAipsPath;
+   }
+   Int n = aipsPath.freq(' ') + aipsPath.freq('	') + 4;
+diff --git a/casacore/measures/Measures/MeasIERS.cc b/casacore/measures/Measures/MeasIERS.cc
+index 18805ff..1ecfcff 100644
 --- a/casacore/measures/Measures/MeasIERS.cc
 +++ b/casacore/measures/Measures/MeasIERS.cc
-@@ -422,7 +422,8 @@
+@@ -447,7 +447,8 @@ Bool MeasIERS::findTab(Table& tab, const Table *tabin, const String &rc,
+             }
            }
-         }
-         if (!found) {
--          String casadata=String(CASADATA);
-+	  // Conda NUL-padding workaround:                                                                        
-+          String casadata=String(String(CASADATA).chars());
-           casadata.gsub("%CASAROOT%", Aipsrc::aipsRoot());
-           casadata.gsub("%CASAHOME%", Aipsrc::aipsHome());
-           Path cdatapath(casadata);
+           if (!found) {
+-            String casadata=String(CASADATA);
++            // Conda NUL-padding workaround:
++            String casadata=String(String(CASADATA).chars());
+             casadata.gsub("%CASAROOT%", Aipsrc::aipsRoot());
+             casadata.gsub("%CASAHOME%", Aipsrc::aipsHome());
+             Path cdatapath(casadata);
+diff --git a/casacore/measures/Measures/MeasTable.cc b/casacore/measures/Measures/MeasTable.cc
+index 42e64a5..11a7ab0 100644
 --- a/casacore/measures/Measures/MeasTable.cc
 +++ b/casacore/measures/Measures/MeasTable.cc
-@@ -2988,7 +2988,8 @@
+@@ -2939,7 +2939,8 @@ Bool MeasTable::AntennaResponsesPath(String &antRespPath, const String &nam) {
  	isValid = Table::isReadable(absPathName);
        }
        if(!isValid){
