@@ -13,12 +13,6 @@ source:
     - default-root.patch
     - ignore-build-env-prefix.patch
 
-    # Probably still need this
-    # - clang-link.patch  # [osx]
-
-    # - so-versioning.patch
-    # - array-templates.patch
-
 build:
   number: 0
   skip: true  # [win]
