@@ -14,7 +14,7 @@ source:
     - ignore-build-env-prefix.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
@@ -32,24 +32,21 @@ requirements:
     - libblas
     - libcblas
     - liblapack
-    - boost
-    - cfitsio
-    - fftw 3.3.*
-    - hdf5
-    - ncurses
+    - boost {{ boost }}
+    - cfitsio {{ cfitsio }}
+    - fftw {{ fftw }}
+    - hdf5 {{ hdf5 }}
+    - ncurses {{ ncurses }}
     - numpy
     - python
-    - readline
-    - wcslib 5.20.*
+    - readline {{ readline }}
+    - wcslib 7.2
   run:
-    - boost
-    - fftw 3.3.*
-    - hdf5
-    - ncurses
+    - boost {{ boost }}
+    - ncurses {{ ncurses }}
     - {{ pin_compatible('numpy') }}
     - python
-    - readline
-    - wcslib 5.20.*
+    - wcslib 7.2
 
 test:
   commands:
