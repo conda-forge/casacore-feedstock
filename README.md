@@ -1,9 +1,9 @@
 About casacore
 ==============
 
-Home: http://casa.nrao.edu/
+Home: https://casacore.github.io/casacore/
 
-Package license: GPLv2
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD 3-Clause
 
