@@ -16,6 +16,8 @@ cxx_compiler_version:
 - '7'
 docker_image:
 - condaforge/linux-anvil-comp7
+fftw:
+- '3'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
@@ -35,6 +37,8 @@ numpy:
 pin_run_as_build:
   boost:
     max_pin: x.x.x
+  fftw:
+    max_pin: x
   ncurses:
     max_pin: x.x
   python:
