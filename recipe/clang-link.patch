@@ -1,0 +1,28 @@
+diff --git a/python/CMakeLists-cmake3.14.txt b/python/CMakeLists-cmake3.14.txt
+index 7c981f7..8232051 100644
+--- a/python/CMakeLists-cmake3.14.txt
++++ b/python/CMakeLists-cmake3.14.txt
+@@ -60,7 +60,8 @@ Converters/PycValueHolder.h
+ Converters/PycArray.tcc
+ )
+ 
+-target_link_libraries (casa_python casa_casa ${PYTHON2_Boost_LIBRARIES} ${PYTHON2_LIBRARIES} ${CASACORE_ARCH_LIBS})
++target_link_libraries (casa_python casa_casa ${PYTHON2_Boost_LIBRARIES} ${CASACORE_ARCH_LIBS})
++set_target_properties(casa_python PROPERTIES LINK_FLAGS "${LINK_FLAGS} -undefined dynamic_lookup")
+ 
+ install (TARGETS casa_python
+ RUNTIME DESTINATION bin
+diff --git a/python3/CMakeLists-cmake3.14.txt b/python3/CMakeLists-cmake3.14.txt
+index 26d5ca5..3a9a084 100644
+--- a/python3/CMakeLists-cmake3.14.txt
++++ b/python3/CMakeLists-cmake3.14.txt
+@@ -51,7 +51,8 @@ add_library (casa_python3
+ )
+ 
+ 
+-target_link_libraries (casa_python3 casa_casa ${PYTHON3_Boost_LIBRARIES} ${PYTHON3_LIBRARIES})
++target_link_libraries (casa_python3 casa_casa ${PYTHON3_Boost_LIBRARIES})
++set_target_properties(casa_python3 PROPERTIES LINK_FLAGS "${LINK_FLAGS} -undefined dynamic_lookup")
+ 
+ install (TARGETS casa_python3
+ RUNTIME DESTINATION bin

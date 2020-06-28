@@ -12,9 +12,10 @@ source:
     - ncursesw.patch
     - default-root.patch
     - ignore-build-env-prefix.patch
+    - clang-link.patch  # [osx]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
@@ -56,6 +57,11 @@ test:
     - measuresdata
     - taql --help
     - tomf --help
+
+    # Make sure that libcasa_python doesn't link to libpython on macOS, since
+    # then the python-casacore modules will crash -- if binary modules on macOS
+    # link to libpython, symbols are duplicated.
+    - bash -c "! otool -L $PREFIX/lib/libcasa_python*.5.dylib |grep /libpython"  # [osx]
 
 about:
   home: https://casacore.github.io/casacore/
