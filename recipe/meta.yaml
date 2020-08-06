@@ -12,10 +12,11 @@ source:
     - ncursesw.patch
     - default-root.patch
     - ignore-build-env-prefix.patch
+    - boost-python-cmake.patch
     - clang-link.patch  # [osx]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
