@@ -12,6 +12,7 @@ source:
     - ncursesw.patch
     - default-root.patch
     - ignore-build-env-prefix.patch
+    - boost-python-cmake.patch
     - clang-link.patch  # [osx]
 
 build:
