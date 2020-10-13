@@ -16,7 +16,7 @@ source:
     - clang-link.patch  # [osx]
 
 build:
-  number: 4
+  number: 5
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
