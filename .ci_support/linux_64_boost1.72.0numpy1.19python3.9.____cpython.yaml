@@ -33,7 +33,7 @@ liblapack:
 ncurses:
 - '6.2'
 numpy:
-- '1.16'
+- '1.19'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -47,8 +47,14 @@ pin_run_as_build:
   readline:
     max_pin: x
 python:
-- 3.6.* *_cpython
+- 3.9.* *_cpython
 readline:
 - '8.0'
 target_platform:
 - linux-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+  - fortran_compiler_version
+- - numpy
+  - python
