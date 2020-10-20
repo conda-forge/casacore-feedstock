@@ -44,9 +44,9 @@ requirements:
     - readline {{ readline }}
     - wcslib 7.2
   run:
-    - boost {{ boost }}
-    - ncurses {{ ncurses }}
+    - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
+    - ncurses {{ ncurses }}
     - python
     - wcslib 7.2
 
