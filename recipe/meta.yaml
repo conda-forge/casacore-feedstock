@@ -42,13 +42,13 @@ requirements:
     - numpy
     - python
     - readline {{ readline }}
-    - wcslib 7.2
+    - wcslib 7.3
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
     - ncurses {{ ncurses }}
     - python
-    - wcslib 7.2
+    - wcslib 7.3
 
 test:
   commands:
