@@ -16,7 +16,7 @@ source:
     - clang-link.patch  # [osx]
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
@@ -42,13 +42,13 @@ requirements:
     - numpy
     - python
     - readline {{ readline }}
-    - wcslib 7.2
+    - wcslib 7.3
   run:
-    - boost {{ boost }}
-    - ncurses {{ ncurses }}
+    - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
+    - ncurses {{ ncurses }}
     - python
-    - wcslib 7.2
+    - wcslib 7.3
 
 test:
   commands:
