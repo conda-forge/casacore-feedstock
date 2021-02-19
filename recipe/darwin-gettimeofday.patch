@@ -1,0 +1,42 @@
+diff --git a/casa/OS/HostInfo.cc b/casa/OS/HostInfo.cc
+index bb4cc53..607275a 100644
+--- a/casa/OS/HostInfo.cc
++++ b/casa/OS/HostInfo.cc
+@@ -39,6 +39,10 @@
+ // Time related includes
+ #include <time.h>
+ 
++#if defined(AIPS_DARWIN)
++#include <sys/time.h>
++#endif
++
+ namespace casacore { //# NAMESPACE CASACORE - BEGIN
+ 
+ String HostInfo::hostName()
+@@ -66,7 +70,17 @@ Int HostInfo::processID()
+     return getpid();
+ }
+ 
+-
++#if defined(AIPS_DARWIN)
++Double HostInfo::secondsFrom1970()
++{
++    struct timeval  tp;
++    char timezone_now_unused[128];
++    AlwaysAssert(gettimeofday(&tp, (void *) timezone_now_unused) >= 0, AipsError);
++    double total = tp.tv_sec;
++    total += tp.tv_usec * 0.000001;
++    return total;
++}
++#else
+ Double HostInfo::secondsFrom1970()
+ {
+   struct timespec tp;
+@@ -75,6 +89,7 @@ Double HostInfo::secondsFrom1970()
+   total += tp.tv_nsec * 1.e-9;
+   return total;
+ }
++#endif
+ 
+ #define HOSTINFO_IMPLEMENT_MEMBERS				\
+ Int HostInfo::numCPUs(bool use_aipsrc)				\
