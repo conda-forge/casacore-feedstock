@@ -23,7 +23,7 @@ fortran_compiler:
 fortran_compiler_version:
 - '9'
 hdf5:
-- 1.10.6
+- 1.12.1
 libblas:
 - 3.8 *netlib
 libcblas:
@@ -51,7 +51,7 @@ pin_run_as_build:
 python:
 - 3.9.* *_cpython
 readline:
-- '8.0'
+- '8'
 target_platform:
 - osx-64
 zip_keys:

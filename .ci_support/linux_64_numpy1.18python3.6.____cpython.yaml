@@ -25,7 +25,7 @@ fortran_compiler:
 fortran_compiler_version:
 - '9'
 hdf5:
-- 1.10.6
+- 1.12.1
 libblas:
 - 3.8 *netlib
 libcblas:
@@ -35,7 +35,7 @@ liblapack:
 ncurses:
 - '6.2'
 numpy:
-- '1.16'
+- '1.18'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -51,7 +51,7 @@ pin_run_as_build:
 python:
 - 3.6.* *_cpython
 readline:
-- '8.0'
+- '8'
 target_platform:
 - linux-64
 zip_keys:
