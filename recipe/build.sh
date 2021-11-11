@@ -43,6 +43,14 @@ cmake_args+=(
   -DLAPACK_LIBRARIES="$PREFIX/lib/liblapack${SHLIB_EXT}"
 )
 
+# Work around issue with multiple definitions of Yacc error function, introduced
+# by behavior change in Bison 3.8 (cf.
+# https://www.gnu.org/software/bison/manual/html_node/Tuning-the-Parser.html)
+export CPPFLAGS="$CPPFLAGS -DYYERROR_IS_DECLARED -DYYLEX_IS_DECLARED"
+
+# Also, CMake doesn't honor CPPFLAGS
+export CXXFLAGS="$CXXFLAGS $CPPFLAGS"
+
 ### cmake_args+=(--debug-trycompile --debug-output --trace-expand)
 
 mkdir build
