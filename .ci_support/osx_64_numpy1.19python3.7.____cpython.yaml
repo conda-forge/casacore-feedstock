@@ -5,7 +5,7 @@ boost:
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '12'
 cfitsio:
 - 4.0.0
 channel_sources:
@@ -15,7 +15,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '11'
+- '12'
 fftw:
 - '3'
 fortran_compiler:
@@ -33,16 +33,14 @@ liblapack:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 ncurses:
-- '6.2'
+- '6'
 numpy:
-- '1.18'
+- '1.19'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
   fftw:
     max_pin: x
-  ncurses:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x

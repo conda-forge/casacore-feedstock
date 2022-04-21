@@ -3,6 +3,7 @@
 set -ex
 
 cmake_args=(
+    ${CMAKE_ARGS}
     -DBUILD_TESTING=OFF
     -DCMAKE_BUILD_TYPE=Release
     -DCMAKE_COLOR_MAKEFILE=OFF
@@ -55,7 +56,7 @@ export CXXFLAGS="$CXXFLAGS $CPPFLAGS"
 
 mkdir build
 cd build
-cmake "${cmake_args[@]}" ..
+cmake ${CMAKE_ARGS} "${cmake_args[@]}" ..
 make -j$CPU_COUNT VERBOSE=1
 make install
 
