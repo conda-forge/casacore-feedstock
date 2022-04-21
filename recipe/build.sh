@@ -3,6 +3,7 @@
 set -ex
 
 cmake_args=(
+    ${CMAKE_ARGS}
     -DBUILD_TESTING=OFF
     -DCMAKE_BUILD_TYPE=Release
     -DCMAKE_COLOR_MAKEFILE=OFF

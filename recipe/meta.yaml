@@ -30,6 +30,7 @@ requirements:
     - bison
     - cmake
     - flex
+    - make
     - m4
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
