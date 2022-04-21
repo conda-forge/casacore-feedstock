@@ -55,7 +55,7 @@ export CXXFLAGS="$CXXFLAGS $CPPFLAGS"
 
 mkdir build
 cd build
-cmake "${cmake_args[@]}" ..
+cmake ${CMAKE_ARGS} "${cmake_args[@]}" ..
 make -j$CPU_COUNT VERBOSE=1
 make install
 
