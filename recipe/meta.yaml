@@ -1,5 +1,5 @@
 {% set name = "casacore" %}
-{% set version = "3.4.0" %}
+{% set version = "3.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 31f02ad2e26f29bab4a47a2a69e049d7bc511084a0b8263360e6157356f92ae1
+  sha256: 63f1c8eff932b0fcbd38c598a5811e6e5397b72835b637d6f426105a183b3f91
   patches:
     - ncursesw.patch
     - default-root.patch
@@ -17,7 +17,7 @@ source:
     - darwin-gettimeofday.patch  # [osx]
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
