@@ -42,6 +42,7 @@ requirements:
     - boost {{ boost }}
     - cfitsio {{ cfitsio }}
     - fftw {{ fftw }}
+    - gsl {{ gsl }}
     - hdf5 {{ hdf5 }}
     - ncurses {{ ncurses }}
     - numpy
