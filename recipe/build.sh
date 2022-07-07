@@ -14,6 +14,7 @@ cmake_args=(
     -DUSE_THREADS=ON
     -DCXX11=ON
     -DCONDA_CASA_ROOT=$PREFIX/lib/casa
+    -DPORTABLE=ON
 )
 
 if [ $PY3K -ne 0 ] ; then
