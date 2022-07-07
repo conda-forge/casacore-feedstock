@@ -22,14 +22,16 @@ fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '9'
+gsl:
+- '2.7'
 hdf5:
 - 1.12.1
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 macos_machine:
 - x86_64-apple-darwin13.4.0
 ncurses:

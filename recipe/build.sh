@@ -14,6 +14,7 @@ cmake_args=(
     -DUSE_THREADS=ON
     -DCXX11=ON
     -DCONDA_CASA_ROOT=$PREFIX/lib/casa
+    -DPORTABLE=ON
 )
 
 if [ $PY3K -ne 0 ] ; then
@@ -47,7 +48,26 @@ cmake_args+=(
 # Work around issue with multiple definitions of Yacc error function, introduced
 # by behavior change in Bison 3.8 (cf.
 # https://www.gnu.org/software/bison/manual/html_node/Tuning-the-Parser.html)
-export CPPFLAGS="$CPPFLAGS -DYYERROR_IS_DECLARED -DYYLEX_IS_DECLARED"
+for c in \
+    IMAGEEXPR \
+    JSON \
+    MSANTENNA \
+    MSARRAY \
+    MSCORR \
+    MSFEED \
+    MSFIELD \
+    MSOBSERVATION \
+    MSPOLN \
+    MSSCAN \
+    MSSPW \
+    MSSTATE \
+    MSTIME \
+    MSUVDIST \
+    RECORD \
+    TABLE \
+; do
+    export CPPFLAGS="$CPPFLAGS -D${c}GRAMERROR_IS_DECLARED -D${c}GRAMLEX_IS_DECLARED"
+done
 
 # Also, CMake doesn't honor CPPFLAGS
 export CXXFLAGS="$CXXFLAGS $CPPFLAGS"
