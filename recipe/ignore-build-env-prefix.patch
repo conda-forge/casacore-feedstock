@@ -1,13 +1,14 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6bf9f4f..2eb980a 100644
+index 9601f85..f26ef96 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -8,6 +8,8 @@ include(CheckCXXCompilerFlag)
- include(CheckCCompilerFlag)
+@@ -7,6 +7,9 @@ include(CheckCCompilerFlag)
  include(CheckFunctionExists)
+ include(CheckCXXSourceCompiles)
  
++# conda-forge patch:
 +list(FILTER CMAKE_SYSTEM_PREFIX_PATH EXCLUDE REGEX build_env)
 +
- # fixes warnings on cmake 3.x+ For now we want the old behavior to be backwards compatible
- if (POLICY CMP0048)
-     cmake_policy (SET CMP0048 OLD)
+ # Fixes warnings on cmake 3.x+ about missing extensions
+ if (POLICY CMP0115)
+     cmake_policy (SET CMP0115 NEW)
