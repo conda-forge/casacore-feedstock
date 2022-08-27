@@ -49,6 +49,7 @@ requirements:
     - python
     - readline {{ readline }}
     - wcslib 7.3
+    - libadios2 * mpi*
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}

@@ -10,6 +10,7 @@ cmake_args=(
     -DCMAKE_INSTALL_PREFIX=$PREFIX
     -DDATA_DIR=$PREFIX/lib/casa/data
     -DUSE_FFTW3=ON
+    -DUSE_ADIOS2=ON
     -DUSE_HDF5=ON
     -DUSE_THREADS=ON
     -DCXX11=ON
