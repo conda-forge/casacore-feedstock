@@ -15,6 +15,7 @@ source:
     - boost-python-cmake.patch
     - clang-link.patch  # [osx]
     - darwin-gettimeofday.patch  # [osx]
+    - libadios2-macos.patch  # [osx]
 
 build:
   number: 1
@@ -49,7 +50,7 @@ requirements:
     - python
     - readline {{ readline }}
     - wcslib 7.3
-    - libadios2 * mpi*
+    - libadios2 2.8 mpi_openmpi*
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}

@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7e48b3ff2..2c79acf93 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -330,7 +330,7 @@ find_package (SOFA)
+ if (USE_ADIOS2)
+     set(USE_MPI ON)
+     message (STATUS "MPI is enabled as required by ADIOS2")
+-    find_package (ADIOS2 CONFIG REQUIRED)
++    find_package (ADIOS2 REQUIRED COMPONENTS C)
+     if (NOT ADIOS2_HAVE_MPI)
+         message (FATAL_ERROR "ADIOS2 found without MPI support.")
+     endif (NOT ADIOS2_HAVE_MPI)
