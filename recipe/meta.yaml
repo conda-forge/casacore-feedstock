@@ -1,5 +1,7 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
+{% set build = "1" %}
+{% set mpi = mpi or "openmpi" %}
 
 package:
   name: {{ name|lower }}
@@ -18,10 +20,12 @@ source:
     - libadios2-macos.patch  # [osx]
 
 build:
-  number: 1
+  number: {{ build }}
   skip: true  # [win]
+  string: mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
+    - {{ name }} * mpi_{{ mpi }}_*
 
 requirements:
   build:
@@ -33,6 +37,7 @@ requirements:
     - flex
     - make
     - m4
+    - {{ mpi }}  # [mpi == "openmpi" and build_platform != target_platform]
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -50,13 +55,17 @@ requirements:
     - python
     - readline {{ readline }}
     - wcslib 7.3
-    - libadios2 2.8 mpi_openmpi*
+    - libadios2 2.8 mpi_{{ mpi }}_*
+    - {{ mpi }}
+    - mpifx * mpi_{{ mpi }}_*
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
     - ncurses {{ ncurses }}
     - python
     - wcslib 7.3
+    - {{ mpi }}
+    - {{ pin_compatible('mpifx') }} mpi_{{ mpi }}_*
 
 test:
   commands:

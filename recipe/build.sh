@@ -2,6 +2,11 @@
 
 set -ex
 
+if [ "$mpi" -eq openmpi ] ; then
+    # "for cross compiling with openmpi" -- libnetcdf build.sh:
+    export OPAL_PREFIX="$PREFIX"
+fi
+
 cmake_args=(
     ${CMAKE_ARGS}
     -DBUILD_TESTING=OFF
