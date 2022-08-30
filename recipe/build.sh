@@ -2,7 +2,7 @@
 
 set -ex
 
-if [ "$mpi" -eq openmpi ] ; then
+if [ "$mpi" = openmpi ] ; then
     # "for cross compiling with openmpi" -- libnetcdf build.sh:
     export OPAL_PREFIX="$PREFIX"
 fi
