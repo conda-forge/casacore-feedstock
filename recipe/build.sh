@@ -2,6 +2,17 @@
 
 set -ex
 
+if [ "$mpi" = nompi ] ; then
+    use_adios2=OFF
+else
+    use_adios2=ON
+fi
+
+if [ "$mpi" = openmpi ] ; then
+    # "for cross compiling with openmpi" -- libnetcdf build.sh:
+    export OPAL_PREFIX="$PREFIX"
+fi
+
 cmake_args=(
     ${CMAKE_ARGS}
     -DBUILD_TESTING=OFF
@@ -10,6 +21,7 @@ cmake_args=(
     -DCMAKE_INSTALL_PREFIX=$PREFIX
     -DDATA_DIR=$PREFIX/lib/casa/data
     -DUSE_FFTW3=ON
+    -DUSE_ADIOS2=$use_adios2
     -DUSE_HDF5=ON
     -DUSE_THREADS=ON
     -DCXX11=ON
