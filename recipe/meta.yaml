@@ -1,7 +1,14 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
-{% set build = "1" %}
-{% set mpi = mpi or "openmpi" %}
+{% set build = 1 %}
+{% set mpi = mpi or "nompi" %}
+
+{% if mpi == "nompi" %}
+{% set build = build + 100 %}
+{% set mpi_prefix = "nompi" %}
+{% else %}
+{% set mpi_prefix = "mpi_" + mpi %}
+{% endif %}
 
 package:
   name: {{ name|lower }}
@@ -22,10 +29,10 @@ source:
 build:
   number: {{ build }}
   skip: true  # [win]
-  string: mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ build }}
+  string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
-    - {{ name }} * mpi_{{ mpi }}_*
+    - {{ name }} * {{ mpi_prefix }}_*  # [mpi != "nompi"]
 
 requirements:
   build:
@@ -55,17 +62,17 @@ requirements:
     - python
     - readline {{ readline }}
     - wcslib 7.3
-    - libadios2 2.8 mpi_{{ mpi }}_*
-    - {{ mpi }}
-    - mpifx * mpi_{{ mpi }}_*
+    - libadios2 2.8 {{ mpi_prefix }}_*  # [mpi != "nompi"]
+    - {{ mpi }}  # [mpi != "nompi"]
+    - mpifx * {{ mpi_prefix }}_*  # [mpi != "nompi"]
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
     - ncurses {{ ncurses }}
     - python
     - wcslib 7.3
-    - {{ mpi }}
-    - {{ pin_compatible('mpifx') }} mpi_{{ mpi }}_*
+    - {{ mpi }}  # [mpi != "nompi"]
+    - {{ pin_compatible('mpifx') }} {{ mpi_prefix }}_*  # [mpi != "nompi"]
 
 test:
   commands:
