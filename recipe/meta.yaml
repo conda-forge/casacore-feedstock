@@ -68,9 +68,7 @@ requirements:
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
-    - ncurses {{ ncurses }}
     - python
-    - wcslib 7.3
     - {{ mpi }}  # [mpi != "nompi"]
     - {{ pin_compatible('mpifx') }} {{ mpi_prefix }}_*  # [mpi != "nompi"]
 
