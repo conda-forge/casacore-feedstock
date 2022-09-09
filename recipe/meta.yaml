@@ -61,7 +61,7 @@ requirements:
     - numpy
     - python
     - readline
-    - wcslib 7.3
+    - wcslib
     - libadios2 2.8 {{ mpi_prefix }}_*  # [mpi != "nompi"]
     - {{ mpi }}  # [mpi != "nompi"]
     - mpifx * {{ mpi_prefix }}_*  # [mpi != "nompi"]
