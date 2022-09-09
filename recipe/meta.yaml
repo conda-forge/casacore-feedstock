@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
-{% set build = 1 %}
+{% set build = 2 %}
 {% set mpi = mpi or "nompi" %}
 
 {% if mpi == "nompi" %}
@@ -52,15 +52,15 @@ requirements:
     - libblas
     - libcblas
     - liblapack
-    - boost {{ boost }}
-    - cfitsio {{ cfitsio }}
-    - fftw {{ fftw }}
-    - gsl {{ gsl }}
-    - hdf5 {{ hdf5 }}
-    - ncurses {{ ncurses }}
+    - boost
+    - cfitsio
+    - fftw
+    - gsl
+    - hdf5
+    - ncurses
     - numpy
     - python
-    - readline {{ readline }}
+    - readline
     - wcslib 7.3
     - libadios2 2.8 {{ mpi_prefix }}_*  # [mpi != "nompi"]
     - {{ mpi }}  # [mpi != "nompi"]
