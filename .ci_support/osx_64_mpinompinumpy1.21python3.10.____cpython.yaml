@@ -47,19 +47,17 @@ openmpi:
 pin_run_as_build:
   boost:
     max_pin: x.x.x
-  fftw:
-    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
-  readline:
-    max_pin: x
 python:
 - 3.10.* *_cpython
 readline:
 - '8'
 target_platform:
 - osx-64
+wcslib:
+- '7.7'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
