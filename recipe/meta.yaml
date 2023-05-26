@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
-{% set build = 4 %}
+{% set build = 5 %}
 {% set mpi = mpi or "nompi" %}
 
 {% if mpi == "nompi" %}
@@ -29,7 +29,7 @@ source:
 build:
   number: {{ build }}
   skip: true  # [win]
-  string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
+  string: {{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
     - {{ name }} * {{ mpi_prefix }}_*  # [mpi != "nompi"]
@@ -64,13 +64,11 @@ requirements:
     - wcslib
     - libadios2 2.8 {{ mpi_prefix }}_*  # [mpi != "nompi"]
     - {{ mpi }}  # [mpi != "nompi"]
-    - mpifx * {{ mpi_prefix }}_*  # [mpi != "nompi"]
   run:
     - {{ pin_compatible('boost') }}
     - {{ pin_compatible('numpy') }}
     - python
     - {{ mpi }}  # [mpi != "nompi"]
-    - {{ pin_compatible('mpifx') }} {{ mpi_prefix }}_*  # [mpi != "nompi"]
 
 test:
   commands:
