@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 boost:
 - 1.78.0
 c_compiler:
@@ -25,7 +25,7 @@ fortran_compiler_version:
 gsl:
 - '2.7'
 hdf5:
-- 1.12.2
+- 1.14.0
 libblas:
 - 3.9 *netlib
 libcblas:
@@ -33,7 +33,7 @@ libcblas:
 liblapack:
 - 3.9 *netlib
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 mpi:
 - nompi
 mpich:
@@ -51,11 +51,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.9.* *_cpython
 readline:
 - '8'
 target_platform:
-- osx-64
+- osx-arm64
 wcslib:
 - '7.7'
 zip_keys:
