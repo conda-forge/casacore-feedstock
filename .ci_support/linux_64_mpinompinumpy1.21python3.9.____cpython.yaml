@@ -57,7 +57,7 @@ readline:
 target_platform:
 - linux-64
 wcslib:
-- '7'
+- '8'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
