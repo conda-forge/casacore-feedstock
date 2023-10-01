@@ -1,11 +1,9 @@
-boost:
-- 1.78.0
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '12'
-cdt_name:
-- cos6
+- '15'
 cfitsio:
 - 4.3.0
 channel_sources:
@@ -13,11 +11,9 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '12'
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- '15'
 fftw:
 - '3'
 fortran_compiler:
@@ -30,10 +26,14 @@ hdf5:
 - 1.14.1
 libblas:
 - 3.9 *netlib
+libboost_python_devel:
+- '1.82'
 libcblas:
 - 3.9 *netlib
 liblapack:
 - 3.9 *netlib
+macos_machine:
+- x86_64-apple-darwin13.4.0
 mpi:
 - nompi
 mpich:
@@ -41,12 +41,10 @@ mpich:
 ncurses:
 - '6'
 numpy:
-- '1.21'
+- '1.22'
 openmpi:
 - '4'
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
@@ -55,7 +53,7 @@ python:
 readline:
 - '8'
 target_platform:
-- linux-64
+- osx-64
 wcslib:
 - '8'
 zip_keys:

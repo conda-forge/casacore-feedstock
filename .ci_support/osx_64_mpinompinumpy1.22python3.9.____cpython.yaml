@@ -1,7 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-boost:
-- 1.78.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -28,6 +26,8 @@ hdf5:
 - 1.14.1
 libblas:
 - 3.9 *netlib
+libboost_python_devel:
+- '1.82'
 libcblas:
 - 3.9 *netlib
 liblapack:
@@ -35,23 +35,21 @@ liblapack:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
-- openmpi
+- nompi
 mpich:
 - '4'
 ncurses:
 - '6'
 numpy:
-- '1.21'
+- '1.22'
 openmpi:
 - '4'
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.9.* *_cpython
 readline:
 - '8'
 target_platform:
