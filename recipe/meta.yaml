@@ -21,7 +21,7 @@ source:
     - ncursesw.patch
     - default-root.patch
     - ignore-build-env-prefix.patch
-    - libboost-python-devel-python-cmake.patch
+    - boost-python-cmake.patch
     - clang-link.patch  # [osx]
     - darwin-gettimeofday.patch  # [osx]
     - libadios2-macos.patch  # [osx]
