@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
-{% set build = 11 %}
+{% set build = 12 %}
 {% set mpi = mpi or "nompi" %}
 
 {% if mpi == "nompi" %}
@@ -62,7 +62,7 @@ requirements:
     - python
     - readline
     - wcslib
-    - libadios2 2.8 {{ mpi_prefix }}_*  # [mpi != "nompi"]
+    - libadios2 2.9 {{ mpi_prefix }}_*  # [mpi != "nompi"]
     - {{ mpi }}  # [mpi != "nompi"]
   run:
     - {{ pin_compatible('numpy') }}
