@@ -62,7 +62,7 @@ requirements:
     - python
     - readline
     - wcslib
-    - libadios2 2.8 {{ mpi_prefix }}_*  # [mpi != "nompi"]
+    - libadios2 2.9 {{ mpi_prefix }}_*  # [mpi != "nompi"]
     - {{ mpi }}  # [mpi != "nompi"]
   run:
     - {{ pin_compatible('numpy') }}
