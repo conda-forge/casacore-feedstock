@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
-{% set build = 17 %}
+{% set build = 18 %}
 {% set mpi = mpi or "nompi" %}
 
 {% if mpi == "nompi" %}
@@ -66,7 +66,6 @@ requirements:
     - libadios2 2.10 {{ mpi_prefix }}_*  # [mpi != "nompi"]
     - {{ mpi }}  # [mpi != "nompi"]
   run:
-    - {{ pin_compatible('numpy') }}
     - python
     - {{ mpi }}  # [mpi != "nompi"]
 
