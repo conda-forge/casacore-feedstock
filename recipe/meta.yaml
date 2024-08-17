@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
 {% set version = "3.5.0" %}
-{% set build = 19 %}
+{% set build = 20 %}
 {% set mpi = mpi or "nompi" %}
 
 {% if mpi == "nompi" %}
