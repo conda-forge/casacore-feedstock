@@ -1,6 +1,6 @@
 {% set name = "casacore" %}
-{% set version = "3.5.0" %}
-{% set build = 20 %}
+{% set version = "3.6.0" %}
+{% set build = 0 %}
 {% set mpi = mpi or "nompi" %}
 
 {% if mpi == "nompi" %}
@@ -16,7 +16,7 @@ package:
 
 source:
   url: https://github.com/casacore/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 63f1c8eff932b0fcbd38c598a5811e6e5397b72835b637d6f426105a183b3f91
+  sha256: c88075aa73c2139b323b71a7f5d56cec5a6a0de649efd11e2d00ca033be5a0d7
   patches:
     - ncursesw.patch
     - default-root.patch
