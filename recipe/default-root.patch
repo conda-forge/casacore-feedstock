@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7e48b3f..9601f85 100644
+index 41def1e..be46fd5 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -522,6 +522,10 @@ else( )
+@@ -523,6 +523,10 @@ else( )
      set (LIB_SOVERSION "${PROJECT_SOVERSION}")
  endif( )
  
@@ -14,10 +14,10 @@ index 7e48b3f..9601f85 100644
  add_subdirectory (build-tools)
  foreach (module ${_modules})
 diff --git a/casa/System/Aipsrc.cc b/casa/System/Aipsrc.cc
-index 9f8f291..0224655 100644
+index 1ed3478..72ddf2a 100644
 --- a/casa/System/Aipsrc.cc
 +++ b/casa/System/Aipsrc.cc
-@@ -220,9 +220,9 @@ void Aipsrc::fillAips() {
+@@ -218,9 +218,9 @@ void Aipsrc::fillAips() {
    } else {
      aipsPath = extAipsPath;
    }
@@ -30,10 +30,10 @@ index 9f8f291..0224655 100644
    }
    Int n = aipsPath.freq(' ') + aipsPath.freq('	') + 4;
 diff --git a/measures/Measures/MeasIERS.cc b/measures/Measures/MeasIERS.cc
-index f466b22..6e2973f 100644
+index 606ba2a..fd836d7 100644
 --- a/measures/Measures/MeasIERS.cc
 +++ b/measures/Measures/MeasIERS.cc
-@@ -466,7 +466,8 @@ Bool MeasIERS::findTab(Table& tab, const Table *tabin, const String &rc,
+@@ -464,7 +464,8 @@ Bool MeasIERS::findTab(Table& tab, const Table *tabin, const String &rc,
                }
              }
              if (!found) {
@@ -44,10 +44,10 @@ index f466b22..6e2973f 100644
                casadata.gsub("%CASAHOME%", Aipsrc::aipsHome());
                Path cdatapath(casadata);
 diff --git a/measures/Measures/MeasTable.cc b/measures/Measures/MeasTable.cc
-index cd4afc9..fcc2295 100644
+index af64509..fcb3a97 100644
 --- a/measures/Measures/MeasTable.cc
 +++ b/measures/Measures/MeasTable.cc
-@@ -2941,7 +2941,8 @@ Bool MeasTable::AntennaResponsesPath(String &antRespPath, const String &nam) {
+@@ -2939,7 +2939,8 @@ Bool MeasTable::AntennaResponsesPath(String &antRespPath, const String &nam) {
  	isValid = Table::isReadable(absPathName);
        }
        if(!isValid){

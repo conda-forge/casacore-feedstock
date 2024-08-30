@@ -1,10 +1,10 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 9601f85..f26ef96 100644
+index be46fd5..a962877 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -7,6 +7,9 @@ include(CheckCCompilerFlag)
- include(CheckFunctionExists)
+@@ -8,6 +8,9 @@ include(CheckFunctionExists)
  include(CheckCXXSourceCompiles)
+ include(cmake/PCHSupport.cmake)
  
 +# conda-forge patch:
 +list(FILTER CMAKE_SYSTEM_PREFIX_PATH EXCLUDE REGEX build_env)
