@@ -29,7 +29,7 @@ fortran_compiler_version:
 gsl:
 - '2.7'
 hdf5:
-- 1.14.3
+- 1.14.4
 libblas:
 - 3.9 *netlib
 libboost_python_devel:
@@ -68,4 +68,3 @@ zip_keys:
   - cdt_name
 - - python
   - numpy
-  - channel_sources
