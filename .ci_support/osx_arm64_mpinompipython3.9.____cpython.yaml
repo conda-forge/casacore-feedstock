@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '18'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,13 +19,13 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '18'
+- '19'
 fftw:
 - '3'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '13'
+- '14'
 gsl:
 - '2.7'
 hdf5:
@@ -33,7 +33,7 @@ hdf5:
 libblas:
 - 3.9.* *netlib
 libboost_python_devel:
-- '1.86'
+- '1.88'
 libcblas:
 - 3.9.* *netlib
 liblapack:
@@ -41,13 +41,13 @@ liblapack:
 macos_machine:
 - arm64-apple-darwin20.0.0
 mpi:
-- openmpi
+- nompi
 mpich:
 - '4'
 ncurses:
 - '6'
 numpy:
-- '2.0'
+- '2'
 openmpi:
 - '5'
 pin_run_as_build:
@@ -55,7 +55,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.9.* *_cpython
 readline:
 - '8'
 target_platform:
@@ -66,5 +66,3 @@ zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
   - fortran_compiler_version
-- - python
-  - numpy
