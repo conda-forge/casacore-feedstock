@@ -28,7 +28,8 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [win]
+  skip: true  # [win or osx or linux64]
+  # skip: true  # [not linux_aarch64]
   string: {{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ pin_subpackage('casacore', max_pin='x.x') }}
