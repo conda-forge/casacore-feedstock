@@ -36,6 +36,12 @@ if [ $PY3K -ne 0 ] ; then
         -DBUILD_PYTHON=OFF
         -DPython3_EXECUTABLE="$PYTHON"
     )
+    if [[ "$build_platform" == "linux-64" && "$target_platform" == "linux-aarch64" ]]; then
+        cmake_args+=(
+            -DPython3_INCLUDE_DIR="$($PYTHON -c 'from sysconfig import get_paths; print(get_paths()["include"])')"
+            -DPython3_NumPy_INCLUDE_DIR="$($PYTHON -c 'import numpy; print(numpy.get_include())')"
+        )
+    fi
 else
     cmake_args+=(
         -DBUILD_PYTHON=ON

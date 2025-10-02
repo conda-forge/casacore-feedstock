@@ -55,7 +55,7 @@ python:
 readline:
 - '8'
 target_platform:
-- linux-aarch64
+- linux-64
 wcslib:
 - '8'
 zip_keys:

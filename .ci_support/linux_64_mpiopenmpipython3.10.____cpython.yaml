@@ -51,11 +51,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.10.* *_cpython
 readline:
 - '8'
 target_platform:
-- linux-aarch64
+- linux-64
 wcslib:
 - '8'
 zip_keys:
