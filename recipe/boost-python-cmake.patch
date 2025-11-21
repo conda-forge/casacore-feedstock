@@ -1,7 +1,7 @@
-diff --git a/python3/CMakeLists-cmake3.14.txt b/python3/CMakeLists-cmake3.14.txt
+diff --git a/python3/CMakeLists.txt b/python3/CMakeLists.txt
 index 26d5ca5..b35ee69 100644
---- a/python3/CMakeLists-cmake3.14.txt
-+++ b/python3/CMakeLists-cmake3.14.txt
+--- a/python3/CMakeLists.txt
++++ b/python3/CMakeLists.txt
 @@ -4,16 +4,9 @@ find_package(Python3 REQUIRED COMPONENTS Interpreter Development NumPy)
  
  if (Python3_FOUND)

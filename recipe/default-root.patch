@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 41def1e..be46fd5 100644
+index 574150c..1bf20e8 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -523,6 +523,10 @@ else( )
+@@ -542,6 +542,10 @@ else( )
      set (LIB_SOVERSION "${PROJECT_SOVERSION}")
  endif( )
  
@@ -14,7 +14,7 @@ index 41def1e..be46fd5 100644
  add_subdirectory (build-tools)
  foreach (module ${_modules})
 diff --git a/casa/System/Aipsrc.cc b/casa/System/Aipsrc.cc
-index 1ed3478..72ddf2a 100644
+index 8b14722..a02c075 100644
 --- a/casa/System/Aipsrc.cc
 +++ b/casa/System/Aipsrc.cc
 @@ -218,9 +218,9 @@ void Aipsrc::fillAips() {
@@ -30,10 +30,10 @@ index 1ed3478..72ddf2a 100644
    }
    Int n = aipsPath.freq(' ') + aipsPath.freq('	') + 4;
 diff --git a/measures/Measures/MeasIERS.cc b/measures/Measures/MeasIERS.cc
-index 606ba2a..fd836d7 100644
+index baa3b34..9ed038d 100644
 --- a/measures/Measures/MeasIERS.cc
 +++ b/measures/Measures/MeasIERS.cc
-@@ -464,7 +464,8 @@ Bool MeasIERS::findTab(Table& tab, const Table *tabin, const String &rc,
+@@ -460,7 +460,8 @@ Bool MeasIERS::findTab(Table& tab, const Table *tabin, const String &rc,
                }
              }
              if (!found) {
@@ -44,7 +44,7 @@ index 606ba2a..fd836d7 100644
                casadata.gsub("%CASAHOME%", Aipsrc::aipsHome());
                Path cdatapath(casadata);
 diff --git a/measures/Measures/MeasTable.cc b/measures/Measures/MeasTable.cc
-index af64509..fcb3a97 100644
+index e169d66..a312a75 100644
 --- a/measures/Measures/MeasTable.cc
 +++ b/measures/Measures/MeasTable.cc
 @@ -2939,7 +2939,8 @@ Bool MeasTable::AntennaResponsesPath(String &antRespPath, const String &nam) {
