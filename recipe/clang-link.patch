@@ -1,7 +1,7 @@
-diff --git a/python/CMakeLists-cmake3.14.txt b/python/CMakeLists-cmake3.14.txt
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
 index 7c981f7..8232051 100644
---- a/python/CMakeLists-cmake3.14.txt
-+++ b/python/CMakeLists-cmake3.14.txt
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
 @@ -60,7 +60,8 @@ Converters/PycValueHolder.h
  Converters/PycArray.tcc
  )
@@ -12,10 +12,10 @@ index 7c981f7..8232051 100644
  
  install (TARGETS casa_python
  RUNTIME DESTINATION bin
-diff --git a/python3/CMakeLists-cmake3.14.txt b/python3/CMakeLists-cmake3.14.txt
+diff --git a/python3/CMakeLists.txt b/python3/CMakeLists.txt
 index b35ee69..c579195 100644
---- a/python3/CMakeLists-cmake3.14.txt
-+++ b/python3/CMakeLists-cmake3.14.txt
+--- a/python3/CMakeLists.txt
++++ b/python3/CMakeLists.txt
 @@ -44,7 +44,8 @@ add_library (casa_python3
  )
  

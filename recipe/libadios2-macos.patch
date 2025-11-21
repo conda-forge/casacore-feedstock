@@ -1,10 +1,10 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index a962877..2514e61 100644
+index faa5b63..c6ff877 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -329,7 +329,7 @@ if (USE_READLINE)
- endif (USE_READLINE)
- find_package (SOFA)
+@@ -345,7 +345,7 @@ if (BUILD_TESTING)
+ endif()
+ 
  if (USE_ADIOS2)
 -    find_package (ADIOS2 2.6.0 CONFIG REQUIRED)
 +    find_package (ADIOS2 2.6.0 REQUIRED COMPONENTS C)
