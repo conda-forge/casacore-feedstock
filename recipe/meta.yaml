@@ -52,6 +52,7 @@ requirements:
   host:
     - libblas
     - libcblas
+    - libdeflate
     - liblapack
     - libboost-python-devel
     - cfitsio
