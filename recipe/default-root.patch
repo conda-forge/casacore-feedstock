@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 574150c..1bf20e8 100644
+index 774aa19..16a0cd0 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -542,6 +542,10 @@ else( )
+@@ -533,6 +533,10 @@ else( )
      set (LIB_SOVERSION "${PROJECT_SOVERSION}")
  endif( )
  
@@ -14,10 +14,10 @@ index 574150c..1bf20e8 100644
  add_subdirectory (build-tools)
  foreach (module ${_modules})
 diff --git a/casa/System/Aipsrc.cc b/casa/System/Aipsrc.cc
-index 8b14722..a02c075 100644
+index 1c18339..93f9794 100644
 --- a/casa/System/Aipsrc.cc
 +++ b/casa/System/Aipsrc.cc
-@@ -218,9 +218,9 @@ void Aipsrc::fillAips() {
+@@ -200,9 +200,9 @@ void Aipsrc::fillAips() {
    } else {
      aipsPath = extAipsPath;
    }
@@ -28,32 +28,32 @@ index 8b14722..a02c075 100644
 +    setAipsPath(String(String(CONDA_CASA_ROOT).chars()));
      aipsPath = extAipsPath;
    }
-   Int n = aipsPath.freq(' ') + aipsPath.freq('	') + 4;
+   Int n = std::count(aipsPath.begin(), aipsPath.end(), ' ') +
 diff --git a/measures/Measures/MeasIERS.cc b/measures/Measures/MeasIERS.cc
-index baa3b34..9ed038d 100644
+index fc11b35..8e8d09b 100644
 --- a/measures/Measures/MeasIERS.cc
 +++ b/measures/Measures/MeasIERS.cc
-@@ -460,7 +460,8 @@ Bool MeasIERS::findTab(Table& tab, const Table *tabin, const String &rc,
+@@ -405,7 +405,8 @@ Bool MeasIERS::findTab(Table &tab, const Table *tabin, const String &rc, const S
                }
              }
              if (!found) {
--              String casadata=String(CASADATA);
+-              String casadata = String(CASADATA);
 +              // Conda NUL-padding workaround:
-+              String casadata=String(String(CASADATA).chars());
-               casadata.gsub("%CASAROOT%", Aipsrc::aipsRoot());
-               casadata.gsub("%CASAHOME%", Aipsrc::aipsHome());
++              String casadata = String(String(CASADATA).chars());
+               ReplaceAllInPlace(casadata, "%CASAROOT%", Aipsrc::aipsRoot());
+               ReplaceAllInPlace(casadata, "%CASAHOME%", Aipsrc::aipsHome());
                Path cdatapath(casadata);
 diff --git a/measures/Measures/MeasTable.cc b/measures/Measures/MeasTable.cc
-index e169d66..a312a75 100644
+index e35fda5..7e0e36c 100644
 --- a/measures/Measures/MeasTable.cc
 +++ b/measures/Measures/MeasTable.cc
-@@ -2939,7 +2939,8 @@ Bool MeasTable::AntennaResponsesPath(String &antRespPath, const String &nam) {
- 	isValid = Table::isReadable(absPathName);
+@@ -2758,7 +2758,8 @@ Bool MeasTable::AntennaResponsesPath(String &antRespPath, const String &nam) {
+         isValid = Table::isReadable(absPathName);
        }
-       if(!isValid){
--        String casadata=String(CASADATA);
+       if (!isValid) {
+-        String casadata = String(CASADATA);
 +        // Conda NUL-padding workaround:
-+        String casadata=String(String(CASADATA).chars());
-         casadata.gsub("%CASAROOT%", Aipsrc::aipsRoot());
-         casadata.gsub("%CASAHOME%", Aipsrc::aipsHome());
++        String casadata = String(String(CASADATA).chars());
+         ReplaceAllInPlace(casadata, "%CASAROOT%", Aipsrc::aipsRoot());
+         ReplaceAllInPlace(casadata, "%CASAHOME%", Aipsrc::aipsHome());
          Path lPath(casadata + "/" + antRespPath);
