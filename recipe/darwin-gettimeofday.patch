@@ -1,5 +1,5 @@
 diff --git a/casa/OS/HostInfo.cc b/casa/OS/HostInfo.cc
-index 56662be..f7a13da 100644
+index 8c36309..bc1f143 100644
 --- a/casa/OS/HostInfo.cc
 +++ b/casa/OS/HostInfo.cc
 @@ -36,6 +36,10 @@
@@ -10,14 +10,13 @@ index 56662be..f7a13da 100644
 +#include <sys/time.h>
 +#endif
 +
- namespace casacore { //# NAMESPACE CASACORE - BEGIN
+ namespace casacore {  // # NAMESPACE CASACORE - BEGIN
  
- String HostInfo::hostName()
-@@ -63,7 +67,17 @@ Int HostInfo::processID()
-     return getpid();
- }
+ String HostInfo::hostName() {
+@@ -59,6 +63,17 @@ String HostInfo::hostName() {
  
--
+ Int HostInfo::processID() { return getpid(); }
+ 
 +#if defined(AIPS_DARWIN)
 +Double HostInfo::secondsFrom1970()
 +{
@@ -29,14 +28,14 @@ index 56662be..f7a13da 100644
 +    return total;
 +}
 +#else
- Double HostInfo::secondsFrom1970()
- {
+ Double HostInfo::secondsFrom1970() {
    struct timespec tp;
-@@ -72,6 +86,7 @@ Double HostInfo::secondsFrom1970()
+   AlwaysAssert(clock_gettime(CLOCK_REALTIME, &tp) == 0, AipsError);
+@@ -66,6 +81,7 @@ Double HostInfo::secondsFrom1970() {
    total += tp.tv_nsec * 1.e-9;
    return total;
  }
 +#endif
  
- #define HOSTINFO_IMPLEMENT_MEMBERS				\
- Int HostInfo::numCPUs(bool use_aipsrc)				\
+ #define HOSTINFO_IMPLEMENT_MEMBERS                                                      \
+   Int HostInfo::numCPUs(bool use_aipsrc) {                                              \
