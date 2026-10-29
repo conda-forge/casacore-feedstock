@@ -1,8 +1,12 @@
 diff --git a/python3/CMakeLists.txt b/python3/CMakeLists.txt
-index 26d5ca5..b35ee69 100644
+index 788bd26..9a984a8 100644
 --- a/python3/CMakeLists.txt
 +++ b/python3/CMakeLists.txt
-@@ -4,16 +4,9 @@ find_package(Python3 REQUIRED COMPONENTS Interpreter Development NumPy)
+@@ -1,19 +1,12 @@
+ message(STATUS "Looking for python3 specific environment...")
+ 
+-find_package(Python3 REQUIRED COMPONENTS Interpreter Development NumPy)
++find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module NumPy)
  
  if (Python3_FOUND)
      find_package(Boost REQUIRED)
