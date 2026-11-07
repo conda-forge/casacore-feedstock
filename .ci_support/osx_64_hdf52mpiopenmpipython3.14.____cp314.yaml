@@ -35,7 +35,7 @@ libboost_python_devel:
 libcblas:
 - 3.9.* *netlib
 libdeflate:
-- '1.25'
+- '1.26'
 liblapack:
 - 3.9.* *netlib
 macos_machine:
